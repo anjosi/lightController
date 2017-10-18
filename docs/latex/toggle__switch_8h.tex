@@ -1,0 +1,126 @@
+\hypertarget{toggle__switch_8h}{}\section{toggle\+\_\+switch.\+h File Reference}
+\label{toggle__switch_8h}\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+
+
+Header file for the toggle switch module.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+Include dependency graph for toggle\+\_\+switch.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{toggle__switch_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__toggle__switch}{t\+\_\+toggle\+\_\+switch}
+\begin{DoxyCompactList}\small\item\em Toggle switch object has one memeber. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structt__toggle__switch}{t\+\_\+toggle\+\_\+switch} \hyperlink{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}{c\+\_\+toggle\+\_\+switch}
+\begin{DoxyCompactList}\small\item\em Toggle switch object has one memeber. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{toggle__switch_8h_a808e5cd4979462d3bbe3070d7d147444}{States} \{ {\bfseries off}, 
+{\bfseries on}
+ \}\begin{DoxyCompactList}\small\item\em type definition for toggle switch states. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{toggle__switch_8h_aba13762ac3cb6bee53cb5db6b62f1adf}{toggle\+\_\+switch\+\_\+init} (\hyperlink{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}{c\+\_\+toggle\+\_\+switch} $\ast$p\+\_\+switch)
+\begin{DoxyCompactList}\small\item\em Init function must be called right after the object has been created. \end{DoxyCompactList}\item 
+void \hyperlink{toggle__switch_8h_a102b8fff165a51d25f52ee001ab67c9b}{toggle\+\_\+switch\+\_\+toggle} (\hyperlink{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}{c\+\_\+toggle\+\_\+switch} $\ast$p\+\_\+switch)
+\begin{DoxyCompactList}\small\item\em Toggle function toggles the switch state between on and off. \end{DoxyCompactList}\item 
+bool \hyperlink{toggle__switch_8h_aea7c046ff1f016298e9025158d22fa5f}{toggle\+\_\+switch\+\_\+is\+\_\+on} (\hyperlink{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}{c\+\_\+toggle\+\_\+switch} $\ast$p\+\_\+switch)
+\begin{DoxyCompactList}\small\item\em is on function return the switch state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for the toggle switch module. 
+
+\begin{DoxyAuthor}{Author}
+Antti Siirilä 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15 Oct 2017 The module toggles its state between on and off whenever a toggle input is received. 
+\end{DoxyDate}
+
+
+\subsection{Typedef Documentation}
+\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}!c\+\_\+toggle\+\_\+switch@{c\+\_\+toggle\+\_\+switch}}
+\index{c\+\_\+toggle\+\_\+switch@{c\+\_\+toggle\+\_\+switch}!toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+\subsubsection[{\texorpdfstring{c\+\_\+toggle\+\_\+switch}{c_toggle_switch}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf t\+\_\+toggle\+\_\+switch}  {\bf c\+\_\+toggle\+\_\+switch}}\hypertarget{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}{}\label{toggle__switch_8h_aee7fad1f1831820e2cfde404e617162e}
+
+
+Toggle switch object has one memeber. 
+
+defines the switch state. 
+
+\subsection{Enumeration Type Documentation}
+\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}!States@{States}}
+\index{States@{States}!toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+\subsubsection[{\texorpdfstring{States}{States}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf States}}\hypertarget{toggle__switch_8h_a808e5cd4979462d3bbe3070d7d147444}{}\label{toggle__switch_8h_a808e5cd4979462d3bbe3070d7d147444}
+
+
+type definition for toggle switch states. 
+
+Possible state values are off and on 
+
+\subsection{Function Documentation}
+\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}!toggle\+\_\+switch\+\_\+init@{toggle\+\_\+switch\+\_\+init}}
+\index{toggle\+\_\+switch\+\_\+init@{toggle\+\_\+switch\+\_\+init}!toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+\subsubsection[{\texorpdfstring{toggle\+\_\+switch\+\_\+init(c\+\_\+toggle\+\_\+switch $\ast$p\+\_\+switch)}{toggle_switch_init(c_toggle_switch *p_switch)}}]{\setlength{\rightskip}{0pt plus 5cm}void toggle\+\_\+switch\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+toggle\+\_\+switch} $\ast$}]{p\+\_\+switch}
+\end{DoxyParamCaption}
+)}\hypertarget{toggle__switch_8h_aba13762ac3cb6bee53cb5db6b62f1adf}{}\label{toggle__switch_8h_aba13762ac3cb6bee53cb5db6b62f1adf}
+
+
+Init function must be called right after the object has been created. 
+
+Once called the switch state is set to off. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$p\+\_\+switch} & toggle switch object \\
+\hline
+\end{DoxyParams}
+\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}!toggle\+\_\+switch\+\_\+is\+\_\+on@{toggle\+\_\+switch\+\_\+is\+\_\+on}}
+\index{toggle\+\_\+switch\+\_\+is\+\_\+on@{toggle\+\_\+switch\+\_\+is\+\_\+on}!toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+\subsubsection[{\texorpdfstring{toggle\+\_\+switch\+\_\+is\+\_\+on(c\+\_\+toggle\+\_\+switch $\ast$p\+\_\+switch)}{toggle_switch_is_on(c_toggle_switch *p_switch)}}]{\setlength{\rightskip}{0pt plus 5cm}bool toggle\+\_\+switch\+\_\+is\+\_\+on (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+toggle\+\_\+switch} $\ast$}]{p\+\_\+switch}
+\end{DoxyParamCaption}
+)}\hypertarget{toggle__switch_8h_aea7c046ff1f016298e9025158d22fa5f}{}\label{toggle__switch_8h_aea7c046ff1f016298e9025158d22fa5f}
+
+
+is on function return the switch state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$p\+\_\+switch} & toggle switch object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true $<$-\/ switch is on, false $<$-\/ switch is off 
+\end{DoxyReturn}
+\index{toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}!toggle\+\_\+switch\+\_\+toggle@{toggle\+\_\+switch\+\_\+toggle}}
+\index{toggle\+\_\+switch\+\_\+toggle@{toggle\+\_\+switch\+\_\+toggle}!toggle\+\_\+switch.\+h@{toggle\+\_\+switch.\+h}}
+\subsubsection[{\texorpdfstring{toggle\+\_\+switch\+\_\+toggle(c\+\_\+toggle\+\_\+switch $\ast$p\+\_\+switch)}{toggle_switch_toggle(c_toggle_switch *p_switch)}}]{\setlength{\rightskip}{0pt plus 5cm}void toggle\+\_\+switch\+\_\+toggle (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+toggle\+\_\+switch} $\ast$}]{p\+\_\+switch}
+\end{DoxyParamCaption}
+)}\hypertarget{toggle__switch_8h_a102b8fff165a51d25f52ee001ab67c9b}{}\label{toggle__switch_8h_a102b8fff165a51d25f52ee001ab67c9b}
+
+
+Toggle function toggles the switch state between on and off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$p\+\_\+switch} & toggle switch object \\
+\hline
+\end{DoxyParams}

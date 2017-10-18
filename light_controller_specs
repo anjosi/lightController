@@ -1,0 +1,131 @@
+Toggle_switch:
+
+	init:	
+		toggle_switch_state = 0
+
+	toggle:
+		toggle_switch_state ~= toggle_switch_state
+
+	isOn:
+		return toggle_switch_state
+
+
+----------------------
+
+ON_OFF_switch:
+	toggle_switch
+
+	init(toggle_switch_instance):
+		toggle_switch = toggle_switch_instance
+
+	on:
+		if !toggle_switch.isOn
+			toggle_switch.toggle
+	off:
+		if toggle_switch.isOn
+			toggle_switch.toggle
+---------------------
+
+Timer:
+	time = epoch_time
+	on_time
+	off_time
+	timer_state {on, off, not_set, invalid}
+
+	init:
+		timer_state = not_set
+	set_on_period(start_time, end_time):
+		if start_time >= end_time
+			timer_state = invalid
+			return timer_state
+		on_times.push(start_time)
+		off_times.push(end_time)
+		timer_state = off
+		return timer_state
+	run:
+		if timer_state != not_set | invalid
+			if time >= on_time AND timer_state == off 
+				timer_state = on
+			elsif time >= off_time AND timer_state == on
+				timer_state = off
+		return timer_state
+--------------------
+Timer_manager:
+	timers
+	state
+
+	set_timer(start_time, end_time):
+		l_timer = new Timer
+		l_timer.init
+		l_timer.set_on_period(to_epoch(start_time), to_epoch(end_time))
+		timers.push(l_timer)
+
+	run:
+		foreach timer in timers:
+			state = timer.run
+			if state == on
+				break;
+		return state
+
+
+--------------------
+
+Light_sensor_state_machine:
+	
+	ON_OFF_switch
+	sensor_signal
+	light_sensor_state {on, off, rising_edge, falling_edge}
+	
+	init(p_sensor_signal):
+		sensor_signal = p_sensor_signal
+		light_sensor_state = off
+	
+	run:	
+		if sensor_signal AND light_sensor_state == off
+			light_sensor_state = rising_edge	
+		elsif sensor_signal AND light_sensor_state == rising_edge | on
+			light_sensor_state = on		
+		elsif !sensor_signal AND light_sensor_state == on
+			light_sensor_state = falling_edge
+		else
+			light_sensor_state = off
+
+		return light_sensor_state
+------------------------------
+
+Light_Controller:
+
+	Toggle_switch
+	ON_OFF_switch
+	Timer_manager
+	timer_state
+	light_sensor_signal = 0
+	button = 0
+	Light_sensor_state_machine
+	light_sensor_state
+
+	Toggle_switch.init
+	ON_OFF_switch.init(Toggle_switch)
+	Timer_manager.set_timer(22:00, 24:00+01:00)
+	Timer_manager.set_timer(05:00, 8:00)
+	Light_sensor_state_machine.init(light_sensor_signal)
+
+	run:
+		light_sensor_signal = read_pin(light_sensor_pin)
+		button = read_pin(button_pin)
+		timer_state = Timer_manager.run
+		if button
+			Toggle_switch.toggle
+		elsif timer_state == on
+			light_sensor_state = Light_sensor_state_machine.run(light_sensor_signal)
+			if light_sensor_state == rising_edge
+				ON_OFF_switch.on
+			elsif light_sensor_state == falling_edge
+				ON_OFF_switch.off
+		elsif timer_state == off
+			ON_OFF_switch.off
+		
+		
+
+
+	
