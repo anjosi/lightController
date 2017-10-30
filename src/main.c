@@ -1,3 +1,11 @@
+
+
+/**
+ * @author      : finansi (finanjosi@gmail.com)
+ * @file        : main
+ * @created     : keskiviikko loka 18, 2017 23:36:26 EEST
+ */
+
 #include <stdio.h>
 #include "toggle_switch.h"
 #include <pthread.h>
@@ -13,10 +21,10 @@ int main(char argc, int argv[1])
     toggle_switch_init(&lightSwitch);
     for(count=0;count < 10; count++)
     {
-
-
         printf("Light switch state %d [0 = off, 1 = on]\n", toggle_switch_is_on(&lightSwitch));
 
-        sleep(5);
+     sleep(5);
     }
+
 }
+

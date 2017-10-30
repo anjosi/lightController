@@ -6,8 +6,8 @@
  * @file toggle_switch.h
  * @author Antti Siirilä
  * @date 15 Oct 2017
- * @brief Header file for the toggle switch module. 
- * 
+ * @brief Header file for the toggle switch module.
+ *
  * The module toggles its state between on and off whenever
  * a toggle input is received.
  */
@@ -27,7 +27,7 @@
             on
        } States;
 
-    
+
     /**
      * @brief Toggle switch object has one memeber.
      *
@@ -37,7 +37,7 @@
        States state;
 
     } c_toggle_switch;
-   
+
     /**
      * @brief Init function must be called right after the object has been created.
      *
